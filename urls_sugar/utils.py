@@ -21,7 +21,10 @@ def sugar_patterns(original_patterns, prefix, *args):
 def patterns(prefix, *args):
     """ calls sugar_patterns with default django patterns 
     """
-    from django.conf.urls.defaults import patterns as django_patterns
+    try:
+        from django.conf.urls import patterns as django_patterns
+    except:
+        from django.conf.urls.defaults import patterns as django_patterns
     return sugar_patterns(django_patterns, prefix, *args)
 
 
