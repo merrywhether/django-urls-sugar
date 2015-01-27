@@ -1,7 +1,9 @@
 """ django-urls-sugar classes
 """
-
-from django.conf.urls.defaults import url
+try:
+    from django.conf.urls import url
+except:
+    from django.conf.urls.defaults import url
 
 
 class UrlSugarElement(object):
